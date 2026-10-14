@@ -1,2 +1,5 @@
 # Kettle Programming Language
-My first language that i made
+
+
+### Side Notes
+keep in mind that I'm not a professional programmer excpect many bugs
