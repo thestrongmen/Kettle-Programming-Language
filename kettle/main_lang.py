@@ -5,20 +5,21 @@ variables = {}
 def translate(code_var):
     global line, var_line
     lines = code_var.splitlines()
-    outputs = []
     for line in lines:
         if line.startswith("operation"):
             code_var = line.split()
-            if code_var[3] == "+":
-                print(int(code_var[3]) + int(code_var[4]))
+            if code_var[2] == "+":
+                print(float(code_var[1]) + float(code_var[3]))
             elif code_var[2] == "-":
-                print(int(code_var[3]) - int(code_var[4]))
+                print(float(code_var[1]) - float(code_var[3]))
             elif code_var[2] == "*":
-                print(int(code_var[3]) * int(code_var[4]))
+                print(float(code_var[1]) * float(code_var[3]))
             elif code_var[2] == "/":
-                print(int(code_var[3]) / int(code_var[4]))
+                print(float(code_var[1]) / float(code_var[3]))
             elif code_var[2] == "^":
-                print(int(code_var[3]) ** int(code_var[4]))
+                print(float(code_var[1]) ** float(code_var[3]))
+            elif code_var[2] == "%":
+                print(float(code_var[1]) % float(code_var[3]))
         elif line.startswith("say"):
             code_var = line[4:].strip()
             if code_var in variables:
@@ -34,9 +35,9 @@ def translate(code_var):
         elif line.startswith("set"):
             var_line = line.split()
             variables[var_line[1]] = var_line[2]
-            if var_line[2].casefold() == "true":
+            if var_line[2].strip().casefold() == "true":
                 variables[var_line[1]] = True
-            elif var_line[2].casefold() == "false":
+            elif var_line[2].strip().casefold() == "false":
                 variables[var_line[1]] = False
             else:
                 try:
@@ -45,10 +46,8 @@ def translate(code_var):
                     try:
                         variables[var_line[1]] = float(var_line[2])
                     except ValueError:
-                        variables[var_line[1]] = str(var_line[2])
+                        variables[var_line[1]] = str(var_line[2]).strip()
         elif line.startswith("type of"):
             code_var = line[8:]
             if code_var in variables:
                 print(type(variables[code_var]).__name__)
-    return "\n".join(outputs)
-
