@@ -1,4 +1,5 @@
-<div align="center"><h1>Kettle Programming Language</h1></div>
+<p align="center"><img src="images-videos/kettle_logo.png"></p>
+<h1 align="center">Kettle Programming Language</h1>
 
 
 ### Why did i make this language?
