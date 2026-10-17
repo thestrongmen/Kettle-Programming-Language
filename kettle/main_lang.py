@@ -51,3 +51,14 @@ def translate(code_var):
             code_var = line[8:]
             if code_var in variables:
                 print(type(variables[code_var]).__name__)
+            else:
+                print(type(code_var).__name__)
+        elif line.startswith("read"):
+            code_var = line[5:].strip()
+            input(code_var)
+        elif line.startswith("length of"):
+            code_var = line[10:].strip()
+            if code_var in variables:
+                print(len(variables[code_var]))
+            else:
+                print(len(code_var))
