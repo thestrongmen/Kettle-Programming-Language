@@ -34,7 +34,7 @@ def translate(code_var):
             sleep(float(code_var))
         elif line.startswith("read"):
             code_var = line.split()
-            variables[code_var[1]] = input(code_var[2])
+            variables[code_var[1]] = input(code_var[2:])
         elif line.startswith("set"):
             var_line = line.split()
             variables[var_line[1]] = var_line[2]
