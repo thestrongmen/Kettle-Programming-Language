@@ -32,6 +32,9 @@ def translate(code_var):
         elif line.startswith("wait"):
             code_var = line[5:]
             sleep(float(code_var))
+        elif line.startswith("read"):
+            code_var = line.split()
+            variables[code_var[1]] = input(code_var[2])
         elif line.startswith("set"):
             var_line = line.split()
             variables[var_line[1]] = var_line[2]
@@ -53,9 +56,6 @@ def translate(code_var):
                 print(type(variables[code_var]).__name__)
             else:
                 print(type(code_var).__name__)
-        elif line.startswith("read"):
-            code_var = line[5:].strip()
-            input(code_var)
         elif line.startswith("length of"):
             code_var = line[10:].strip()
             if code_var in variables:
