@@ -1,7 +1,10 @@
 from random import randint
 from time import sleep
+# requires manual install using pip (pip install customtkinter)
+from customtkinter import *
 
 variables = {}
+windows = {}
 def translate(code_var):
     global line, var_line
     lines = code_var.splitlines()
@@ -34,7 +37,7 @@ def translate(code_var):
             sleep(float(code_var))
         elif line.startswith("read"):
             code_var = line.split()
-            variables[code_var[1]] = input(code_var[2:])
+            variables[code_var[1]] = input(code_var[2])
         elif line.startswith("set"):
             var_line = line.split()
             variables[var_line[1]] = var_line[2]
@@ -62,3 +65,10 @@ def translate(code_var):
                 print(len(variables[code_var]))
             else:
                 print(len(code_var))
+        elif line.startswith("window"):
+            code_var = line.split()
+            windows["name"] = code_var[1]
+            windows["app"] = CTk()
+            windows["app"].title(windows["name"])
+    if "app" in windows:
+        windows["app"].mainloop()
