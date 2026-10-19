@@ -15,12 +15,15 @@ random -> random.randint()
 type of -> print(type(variable).__name__())
 read -> input()
 length of -> print(len())
+window = app = customtkinter.Ctk(), app.mainloop() *this requires the customtkinter module
 ```
+***
+modules/librariess used in this project:
+
+[customtkinter](https://github.com/tomschimansky/customtkinter)
 ***
 ### How to be able to use the language:
 you could make a code editor for this language or integrate this in a vs-code extension (which i don't think any sane person would do for such a useless language) keep in mind that the command `read` needs a console capable of handling input so if you make a code editor for the language and have a text label console the `read` command may crash your app
 ***
 ### Notes
 keep in mind that I'm not a professional programmer expect many bugs
-
-
