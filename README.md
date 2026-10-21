@@ -15,7 +15,7 @@ random -> random.randint()
 type of -> print(type(variable).__name__())
 read -> input()
 length of -> print(len())
-window = app = customtkinter.Ctk(), app.mainloop() *this requires the customtkinter module
+window -> app = customtkinter.Ctk(), app.mainloop() *this requires the customtkinter module
 ```
 ***
 modules/librariess used in this project:
